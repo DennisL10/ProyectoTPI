@@ -31,10 +31,20 @@ app.use(session({
 // Invocamos al modulo de conexion
 const connection = require('./database/db');
 
-
+//Estableciendo rutas
 app.get('/', (req, res)=>{
-    res.send('BUENAS')
+    res.render('index');
 })
+
+app.get('/login', (req, res)=>{
+    res.render('login');
+})
+
+app.get('/register', (req, res)=>{
+    res.render('register');
+})
+
+
 
 app.listen(3000, (req, res) =>{
     console.log('SERVER RUNNING IN http://localhost:3000');
