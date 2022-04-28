@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(87, 125, 238);
+}
+h1{
+    font-size: 20px;
+    font-style:oblique;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-left: 500px;
+    margin-right: 500px;
+}
