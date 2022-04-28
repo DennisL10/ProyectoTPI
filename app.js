@@ -28,9 +28,10 @@ app.use(session({
     saveUninitialized: true
 }))
 
+// Invocamos al modulo de conexion
+const connection = require('./database/db');
 
 
-console.log(__dirname);
 app.get('/', (req, res)=>{
     res.send('BUENAS')
 })
