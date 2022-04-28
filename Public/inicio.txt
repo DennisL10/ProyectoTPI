@@ -1,0 +1,3 @@
+git config --global user.name
+git config --global user.email
+git remote add origin https://github.com/DennisL10/ProyectoTPI.git
