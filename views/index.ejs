@@ -1,14 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="resources/style.css">
-    <title>Registro</title>
+    <title>Inicio</title>
+    <style>      
     
-</head>
-<body>
-    <h1>HOLA MUNDO</h1>
-</body>
+    </style>
+  </head>
+  <body class="text-center">         
+          <div class="contenedor">
+            <h1>BIENVENIDOS</h1>
+            <% if (login) { %>                
+                <h1>Usuario conectado: <strong><%= name %></strong></h1>                        
+                <a href="logout" class="a-logout">Logout</a>
+            <%} else { %>
+                <h1><strong><%= name %></strong></h1>   
+                <a href="login" class="a-login">Ir a Login</a>
+            <% } %>
+          </div>
+  </body>
 </html>

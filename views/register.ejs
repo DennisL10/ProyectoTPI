@@ -5,52 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/style.css">
-    <title>REGISTRARME</title>
+    <title>Registro</title>
 </head>
 <body>
-    
     <div class="register-form">
-        <h1>Registrate</h1>
-        <form action="register" method="post">
-            <label for="nombre">Nombre Completo</label>
-            <input type="text" name="nom" placeholder="Introduzca su nombre" required>
-
+		<h1>Registrate</h1>
+		<form action="/register" method="POST">
             <label for="user">Usuario</label>
-            <input type="text" name="user" placeholder="Introduzca un usuario" required>
-
-            <label for="rol">Rol</label>
-            <select name="rol" id="rol" class="select-css">
-                <option value="seleccionar" selected>Seleccionar</option>
-                <option value="data entry">Usuario</option>
+                <input type="text" name="user" placeholder="Intraduzca un usuario" required tabindex="1" autofocus>            
+            <label for="user">Nombre Completo</label>
+                <input type="text" name="name" placeholder="Introduzca su nombre" required tabindex="2">
+            
+            <label for="rol">Rol</label>                          
+            <select id="rol" name="rol" class="select-css" tabindex="3">
                 <option value="admin" selected>Administrador</option>
+                <option value="data entry">Usuario</option>                    
             </select>
-
-            <label for="pass">Contraseña</label>
-            <input type="password" name="pass" placeholder="Introduzca una contraseña" required>
-
-            <div style="display: inline;">
-                <a href="/" class="btn-cancel">Cancelar</a><input type="submit" class="btn-save" value="Guardar">
+             <br> 
+            <label for="pass">Password</label>
+			    <input type="password" name="pass" placeholder="Intraduzca una contraseña" required tabindex="4">
+            <div style="display: inline;">             
+            <a href="/" class="btn-cancel">Cancel</a><input type="submit" class="btn-save" value="Guardar">           
             </div>
+		</form>		
+	</div>
 
-        </form>
+    		
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    </div>
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <% if(typeof alert != "undefined") { %>
-        <script>
-            Swal.fire({
-                title: '<%= alertTitle %>',
-                text: '<%= alertMessage %>',
-                icon: '<%= alertIcon %>',
-                showConfirmButton: <%= showConfirmButton %>,
-                timer: <%= timer %>
-            }).then(()=>{
-                window.location='/ <%= ruta %>'
-            })
-        </script>
-    <% } %>
-
+<% if (typeof alert != "undefined")  { %>
+ <script>
+ Swal.fire({
+   title:'<%= alertTitle %>',
+   text:'<%= alertMessage %>',
+   icon:'<%= alertIcon %>',
+   showConfirmButton: <%= showConfirmButton %>,
+   timer: <%= timer %>
+ }).then(()=>{
+   window.location='/<%= ruta %>'
+ })
+ </script>
+<% } %>
+ </div>
 </body>
 </html>
