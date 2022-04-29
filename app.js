@@ -44,7 +44,31 @@ app.get('/register', (req, res)=>{
     res.render('register');
 })
 
+app.post('/register', async (req, res) =>{
+    const user = req.body.user;
+    const name = req.body.nom;
+    const rol = req.body.rol;
+    const pass = req.body.pass;
+    let passwordHaash = await bcryptjs.hash(pass, 8);
+    connection.query('INSERT INTO users SET ?', {User:user, Nombre:name, Rol:rol, Pass:passwordHaash}, async(error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.render('register', {
+                alert: true,
+                alertTitle: "Registro",
+                alertMessage: "Registro Exitoso!",
+                alertIcon: 'success',
+                showConfirmButton:false,
+                timer:1500,
+                ruta: ''
+            })
+        }
+    })
 
+
+
+})
 
 app.listen(3000, (req, res) =>{
     console.log('SERVER RUNNING IN http://localhost:3000');
