@@ -95,7 +95,7 @@ app.post('/auth', async (req, res)=> {
 				res.render('login', {
 					alert: true,
 					alertTitle: "Conexión exitosa",
-					alertMessage: "¡LOGIN CORRECTO!",
+					alertMessage: "INICIO DE SESION CORRECTO!",
 					alertIcon:'success',
 					showConfirmButton: false,
 					timer: 1500,
@@ -105,7 +105,7 @@ app.post('/auth', async (req, res)=> {
 			res.end();
 		});
 	} else {	
-		res.send('Please enter user and Password!');
+		res.send('Por favor use una contraseña!');
 		res.end();
 	}
 });

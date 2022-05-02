@@ -9,6 +9,7 @@ body{
 .login-form, .contenedor {
   width: 300px;
   margin: 0 auto;
+  background-color: transparent;
 }
 .login-form h1 {
   text-align: center;
