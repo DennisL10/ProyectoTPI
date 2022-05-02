@@ -1,9 +1,14 @@
 body{
   font-family: 'Roboto';  
-  background-color: #f5f5f5;
-  margin: auto;
+  background-color: #97b0c9;
+  background-image: url("https://www.salud.gob.sv/archivos/pdf/plantillas_institucionales/logos-minsal-062019/header_transparente-MINSAL-062019_membrete.png");
+  background-repeat:no-repeat;
+  background-position-x:left;
+  background-position-y:top;
+  background-size: 16rem;
   text-align: center;
 }
+
 
 /* Login form */
 .login-form, .contenedor {
@@ -13,15 +18,17 @@ body{
 }
 .login-form h1 {
   text-align: center;
-  color:midnightblue ;
+  color:rgb(133, 152, 188) ;
   font-size: 28px;
   padding: 70px 0 10px 0;
 }
+
 .login-form input[type="password"],
 .login-form input[type="text"] {
   width: 100%;
   padding: 15px;
-  border: 1px solid #ced4da;
+  background-color: #97b0c9;
+  border: 1px solid #3f4f5f;
   margin-bottom: 10px;
   box-sizing:border-box;
 }
@@ -30,7 +37,7 @@ body{
 .btn-login{
   width: 100%;
   padding: 15px;
-  background-color: #6f42c1;
+  background-color: #4495e6;
   border: 0;
   box-sizing: border-box;
   cursor: pointer;
@@ -40,8 +47,8 @@ body{
 }
 .btn-login:hover,.btn-login:active{
   color:#fff;
-  background-color:#61428f;
-  border-color:#61428f
+  background-color:#1f2db3;
+  border-color:#2b3e9d
 }
 .btn-login:focus{
   box-shadow:0 0 0 3px rgba(121,82,179,0.25)
@@ -173,12 +180,12 @@ body{
   margin-top: 35px;
   font-family: roboto;  
   text-align: left !important;
- box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); 
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); 
 }
 
 .register-form h1 {
-  text-align: left;
-  color:midnightblue ;
+  text-align: center;
+  color:rgb(115, 138, 188) ;
   font-size: 22px;
   padding: 70px 0 10px 0;
 }
@@ -186,7 +193,8 @@ body{
 .register-form input[type="text"] {
   width: 100%;
   padding: 15px;
-  border: 1px solid #ced4da;
+  background-color: #97b0c9;
+  border: 1px solid #3f4f5f;
   margin-bottom: 10px;
   box-sizing:border-box;
 }
@@ -202,7 +210,9 @@ body{
   max-width: 100%; 
   box-sizing: border-box;
   margin: 0;  
-  background-color: #f5f5f5;  
+  background-color: #97b0c9;
+  border: 1px solid #3f4f5f;
+   
  }
  .select-css::-ms-expand {
   display: none;
@@ -220,3 +230,8 @@ body{
  .select-css option {
   font-weight:normal;
  }
+ option{
+  background-color: #97b0c9;
+  border: 1px solid #3f4f5f;
+ }
+ 
