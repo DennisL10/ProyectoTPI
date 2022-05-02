@@ -1,5 +1,29 @@
 ###
 POST http://localhost:9000/api/users HTTP/1.1
-Content-Type: application/application/json
+Content-Type: application/json
 
-{}
+{
+    "name": "Elmer Ponce",
+    "age": 31,
+    "email": "ponce@gmail.com"
+}
+
+###
+GET http://localhost:9000/api/users HTTP/1.1\
+
+###
+
+GET http://localhost:9000/api/users/627069b9ca01e387e0ff32ea HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/627069b9ca01e387e0ff32ea HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Elmer Ponce",
+    "age": 21,
+    "email": "ponce@gmail.com"
+}
+
+###
+DELETE http://localhost:9000/api/users/6270655f243bb470ca93917d HTTP/1.1

@@ -7,7 +7,8 @@ const app = express();
 const port = process.env.PORT || 9000;
 
 //middleware
-app.use('/api', rutaUser)
+app.use(express.json());
+app.use('/api', rutaUser);
 
 //rutas
 app.get("/", (req, res) => {
