@@ -3,9 +3,9 @@ POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Kevin Portillo",
+    "name": "Dayanna Ivette",
     "age": 24,
-    "email": "kevin@gmail.com"
+    "email": "Dayanna@gmail.com"
 }
 
 // Leer Usuarios
