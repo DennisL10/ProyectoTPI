@@ -3,9 +3,10 @@ POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Dayanna Ivette",
-    "age": 24,
-    "email": "Dayanna@gmail.com"
+    "nombre": "Dennis Landaverde",
+    "edad": 24,
+    "correo": "Den@gmail.com",
+    "telefono": "1234-5678"
 }
 
 // Leer Usuarios
@@ -23,9 +24,10 @@ PUT http://localhost:9000/api/users/62706fcc7c576a74bbd8e7f6 HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Kevin Juan",
-    "age": 22,
-    "email": "kevin@gmail.com"
+   "nombre": "Dennis Landaverde",
+    "edad": 24,
+    "correo": "Den@gmail.com",
+    "telefono": "1234-5678"
 }
 
 //Eliminar usuario
