@@ -6,7 +6,8 @@ Content-Type: application/json
     "nombre": "Dennis Landaverde",
     "edad": 24,
     "correo": "Den@gmail.com",
-    "telefono": "1234-5678"
+    "telefono": "1234-5678",
+    "estado": true
 }
 
 // Leer Usuarios
@@ -16,7 +17,7 @@ GET http://localhost:9000/api/users HTTP/1.1\
 ###
 
 //Leer un usuario
-GET http://localhost:9000/api/users/62706fcc7c576a74bbd8e7f6 HTTP/1.1
+GET http://localhost:9000/api/users/627432b85dc091fececa7049 HTTP/1.1
 
 //actualizar usuario
 ###
@@ -32,4 +33,4 @@ Content-Type: application/json
 
 //Eliminar usuario
 ###
-DELETE http://localhost:9000/api/users/62706fcc7c576a74bbd8e7f6 HTTP/1.1
+DELETE http://localhost:9000/api/users/627432b85dc091fececa7049 HTTP/1.1

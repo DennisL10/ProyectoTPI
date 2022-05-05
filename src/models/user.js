@@ -16,6 +16,10 @@ const userShema = mongoose.Schema({
     telefono: {
         type: String,
         required: true
+    },
+    estado: {
+        type: Boolean,
+        required: true
     }
 });
 
