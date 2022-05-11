@@ -28,7 +28,8 @@ Content-Type: application/json
    "nombre": "Dennis Landaverde",
     "edad": 24,
     "correo": "Den@gmail.com",
-    "telefono": "1234-5678"
+    "telefono": "1234-5678",
+    "estado": true
 }
 
 //Eliminar usuario
