@@ -19,7 +19,7 @@ const userShema = mongoose.Schema({
     },
     estado: {
         type: Boolean,
-        required: true
+        required: false
     }
 });
 
