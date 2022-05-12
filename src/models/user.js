@@ -5,6 +5,10 @@ const userShema = mongoose.Schema({
         type: String,
         required:true
     },
+    sexo:{
+        type: Boolean,
+        required: true
+    },
     edad: {
         type: Number,
         required: true
@@ -20,6 +24,10 @@ const userShema = mongoose.Schema({
     estado: {
         type: Boolean,
         required: true
+    },
+    VuM: {
+        type: Boolean,
+        required: false
     }
 });
 

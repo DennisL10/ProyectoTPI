@@ -4,10 +4,11 @@ Content-Type: application/json
 
 {
     "nombre": "Dennis Fuentes",
+    "sexo": true,
     "edad": 24,
     "correo": "Denn@gmail.com",
     "telefono": "1234-5678",
-    "estado": true
+    "estado": true,
 }
 
 // Leer Usuarios
