@@ -3,12 +3,12 @@ POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Dennis Fuentes",
+    "nombre": "Juan Landaverde",
     "sexo": true,
-    "edad": 24,
-    "correo": "Denn@gmail.com",
+    "edad": 31,
+    "correo": "juan@gmail.com",
     "telefono": "1234-5678",
-    "estado": true,
+    "estado": true
 }
 
 // Leer Usuarios
@@ -18,21 +18,19 @@ GET http://localhost:9000/api/users HTTP/1.1\
 ###
 
 //Leer un usuario
-GET http://localhost:9000/api/users/627432b85dc091fececa7049 HTTP/1.1
+GET http://localhost:9000/api/users/627c667848daba3594861d63 HTTP/1.1
 
 //actualizar usuario
 ###
-PUT http://localhost:9000/api/users/62706fcc7c576a74bbd8e7f6 HTTP/1.1
+PUT http://localhost:9000/api/users/627c667848daba3594861d63 HTTP/1.1
 Content-Type: application/json
 
 {
-   "nombre": "Dennis Landaverde",
-    "edad": 24,
-    "correo": "Den@gmail.com",
-    "telefono": "1234-5678",
-    "estado": true
+
+    "correo": "landa@gmail.com"
+
 }
 
 //Eliminar usuario
 ###
-DELETE http://localhost:9000/api/users/627432b85dc091fececa7049 HTTP/1.1
+DELETE http://localhost:9000/api/users/627c667848daba3594861d63 HTTP/1.1

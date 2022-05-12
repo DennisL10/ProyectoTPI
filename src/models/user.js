@@ -7,7 +7,7 @@ const userShema = mongoose.Schema({
     },
     sexo:{
         type: Boolean,
-        required: true
+        required: false
     },
     edad: {
         type: Number,
@@ -15,7 +15,7 @@ const userShema = mongoose.Schema({
     },
     correo:{
         type: String,
-        required: true
+        required: false
     },
     telefono: {
         type: String,
@@ -30,5 +30,16 @@ const userShema = mongoose.Schema({
         required: false
     }
 });
+// Ensure virtual fields are serialised.
+mongoose.set('toJSON', {
+    virtuals: true,
+    versionKey: false,
+    transform(_doc, ret) {
+      // eslint-disable-next-line no-param-reassign,no-underscore-dangle
+      ret.id = ret._id;
+      delete ret._id;
+    },
+  });
 
 module.exports = mongoose.model('Usuarios', userShema);
+
