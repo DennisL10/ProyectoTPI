@@ -8,7 +8,8 @@ Content-Type: application/json
     "edad": 31,
     "correo": "juan@gmail.com",
     "telefono": "1234-5678",
-    "estado": true
+    "estado": true,
+    "VuM": false
 }
 
 // Leer Usuarios
