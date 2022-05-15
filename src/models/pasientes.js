@@ -7,7 +7,7 @@ const userShema = mongoose.Schema({
     },
     sexo:{
         type: Boolean,
-        required: false
+        required: true
     },
     edad: {
         type: Number,
