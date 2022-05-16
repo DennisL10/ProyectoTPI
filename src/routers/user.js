@@ -1,5 +1,6 @@
 const expresss = require("express");
-const userShema = require("../models/pasientes");
+const userShema = require("../models/pacientes");
+const admin = require("../models/admin");
 
 const router = expresss.Router();
 
@@ -46,6 +47,50 @@ router.delete("/users/:id", (req, res) => {
     .remove({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
+});
+
+
+
+//logueo registro
+router.post("/registrologin", (req, res) => {
+    const {usuario, pass, adminn, admina, admine, admins} = req.body;
+
+    const newuser = new admin({usuario, pass, adminn, admina, admine, admins});
+    newuser.save(err =>{
+        if(err){
+            res.status(500).send('ERROR AL REGISTRAR EL USUARIO');
+        }else{
+            res.status(200).send('USUARIO RESGISTRADO');
+        }
+    });
+});
+
+// inicio sesion
+router.post("/login", (req, res) => {
+    const {usuario, pass} = req.body;
+
+    admin.findOne({usuario}, (err, user) => {
+        if(err){
+            return res.status(500).send('ERROR AL INICIAR SESION');
+        }
+        else if(!user){
+            return res.status(404).send('EL USUARIO NO EXISTE');
+        }
+        else{
+            user.isCorrectPass(pass, (err, result) => {
+                if(err){
+                    return res.status(500).send('ERROR AL INICIAR SESION');
+                }else if(result){
+                    return res.status(200).send('SESION INICIADA');
+                }else{
+                    return res.status(500).send('USUARIO Y/O CONTRASEÑA INCORRECTA');
+                }
+            });
+        }
+
+        
+    });
+
 });
 
 module.exports = router;

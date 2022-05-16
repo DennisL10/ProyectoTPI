@@ -41,5 +41,5 @@ mongoose.set('toJSON', {
     },
   });
 
-module.exports = mongoose.model('Usuarios', userShema);
+module.exports = mongoose.model('pacientes', userShema);
 

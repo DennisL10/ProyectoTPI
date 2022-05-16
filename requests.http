@@ -35,3 +35,30 @@ Content-Type: application/json
 //Eliminar usuario
 ###
 DELETE http://localhost:9000/api/users/627c667848daba3594861d63 HTTP/1.1
+
+
+
+###
+//Reguistro loguin
+POST http://localhost:9000/api/registrologin HTTP/1.1
+Content-Type: application/json
+
+{
+    "usuario":"elmer",
+    "pass":"123456789",
+    "adminn":"Elmer",
+    "admina": "Ponce",
+    "admine": 21,
+    "admins": true
+}
+
+###
+//login
+POST http://localhost:9000/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "usuario":"dennisl10",
+    "pass":"12345"
+
+}
