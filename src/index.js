@@ -8,7 +8,7 @@ const port = process.env.PORT || 9000;
 
 //middleware
 app.use(express.json());
-app.use('/api', ruta);
+app.use('/HOSPITAL', ruta);
 
 
 
