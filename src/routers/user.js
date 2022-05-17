@@ -1,8 +1,11 @@
 const expresss = require("express");
 const userShema = require("../models/pacientes");
 const admin = require("../models/admin");
+const bcrypt = require('bcrypt');
 
 const router = expresss.Router();
+router.use(expresss.urlencoded({extended:false}));
+router.use(expresss.json());
 
 //Crear Usuario
 router.post("/users", (req, res) => {
@@ -54,7 +57,6 @@ router.delete("/users/:id", (req, res) => {
 //logueo registro
 router.post("/registrologin", (req, res) => {
     const {usuario, pass, adminn, admina, admine, admins} = req.body;
-
     const newuser = new admin({usuario, pass, adminn, admina, admine, admins});
     newuser.save(err =>{
         if(err){

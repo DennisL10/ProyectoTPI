@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
-const saltRounds =20;
+
+
 
 const userShema = mongoose.Schema({
     usuario:{
@@ -31,21 +32,12 @@ const userShema = mongoose.Schema({
 });
 
 userShema.pre('save', function(next){
-    if(this.isNew || this.isModified('pass')){
-        const document = this;
-
-        bcrypt.hash(document.pass, saltRounds, (err, hashedPass) =>{
-            if(err){
-                next(err);
-            }else{
-                document.pass = hashedPass;
-                next();
-            }
-        });
-    }else{
-        next();
-    }
-
+    bcrypt.genSalt(10).then(salts => {
+        bcrypt.hash(this.pass, salts).then(hash => {
+            this.pass = hash;
+            next();
+        }).catch(error => next(error));
+    }).catch(error => next(error));
 });
 
 userShema.methods.isCorrectPass = function(candidatepass, callback){
@@ -57,6 +49,7 @@ userShema.methods.isCorrectPass = function(candidatepass, callback){
         }
     });
 }
+
 
 
 mongoose.set('toJSON', {
