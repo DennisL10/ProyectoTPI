@@ -38,7 +38,20 @@ userShema.pre('save', function(next){
             next();
         }).catch(error => next(error));
     }).catch(error => next(error));
+
 });
+
+userShema.pre('updateOne', function(next){
+    bcrypt.genSalt(10).then(salts => {
+        bcrypt.hash(this.pass, salts).then(hash => {
+            this.pass = hash;
+            next();
+        }).catch(error => next(error));
+    }).catch(error => next(error));
+
+});
+
+
 
 userShema.methods.isCorrectPass = function(candidatepass, callback){
     bcrypt.compare(candidatepass, this.pass, function(err, same){

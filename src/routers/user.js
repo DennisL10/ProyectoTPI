@@ -7,8 +7,10 @@ const router = expresss.Router();
 router.use(expresss.urlencoded({extended:false}));
 router.use(expresss.json());
 
-//Crear Usuario
-router.post("/users", (req, res) => {
+
+// PACIENTES HOSPITAL
+//Crear Paciente
+router.post("/pacientes", (req, res) => {
     const user = userShema(req.body);
     user
     .save()
@@ -16,16 +18,16 @@ router.post("/users", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
-// obtener usuarios
-router.get("/users", (req, res) => {
+// obtener pacientes
+router.get("/pacientes", (req, res) => {
     userShema
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
-// obtener un usuario
-router.get("/users/:id", (req, res) => {
+// obtener un paciente
+router.get("/pacientes/:id", (req, res) => {
     const { id } = req.params;
     userShema
     .findById(id)
@@ -33,8 +35,8 @@ router.get("/users/:id", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
-//Actualizar usuario
-router.put("/users/:id", (req, res) => {
+//Actualizar paciente
+router.put("/pacientes/:id", (req, res) => {
     const { id } = req.params;
     const { nombre, sexo, edad, correo, telefono, estado, VuM } = req.body;
     userShema
@@ -43,8 +45,8 @@ router.put("/users/:id", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
-//Eliminar Usuario
-router.delete("/users/:id", (req, res) => {
+//Eliminar paciente
+router.delete("/pacientes/:id", (req, res) => {
     const { id } = req.params;
     userShema
     .remove({ _id: id })
@@ -54,8 +56,12 @@ router.delete("/users/:id", (req, res) => {
 
 
 
-//logueo registro
-router.post("/registrologin", (req, res) => {
+//USUARIOS HOSPITAL
+
+
+
+//Registro Usuario
+router.post("/registro", (req, res) => {
     const {usuario, pass, adminn, admina, admine, admins} = req.body;
     const newuser = new admin({usuario, pass, adminn, admina, admine, admins});
     newuser.save(err =>{
@@ -93,6 +99,43 @@ router.post("/login", (req, res) => {
         
     });
 
+});
+
+// Obtener usuarios
+router.get("/admin", (req, res) => {
+    admin
+    .find()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
+//Obtener un usuario
+router.get("/admin/:id", (req, res) => {
+    const { id } = req.params;
+    admin
+    .findById(id)
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
+//Actualizar usuarios
+router.put("/admin/:id", (req, res) => {
+    const { id } = req.params;
+    const {usuario, pass, adminn, admina, admine, admins} = req.body;
+    admin
+    .updateOne({ _id: id }, { $set: { usuario, pass, adminn, admina, admine, admins} })
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
+
+//Eliminar Usuario
+router.delete("/admin/:id", (req, res) => {
+    const { id } = req.params;
+    admin
+    .remove({ _id: id })
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
 });
 
 module.exports = router;

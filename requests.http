@@ -3,7 +3,7 @@ POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Juan Landaverde",
+    "nombre": "Juan",
     "sexo": true,
     "edad": 31,
     "correo": "juan@gmail.com",
@@ -40,7 +40,7 @@ DELETE http://localhost:9000/api/users/627c667848daba3594861d63 HTTP/1.1
 
 ###
 //Reguistro loguin
-POST http://localhost:9000/api/registrologin HTTP/1.1
+POST http://localhost:9000/api/registro HTTP/1.1
 Content-Type: application/json
 
 {
