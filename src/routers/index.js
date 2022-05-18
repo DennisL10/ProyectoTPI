@@ -12,9 +12,13 @@ router.use(expresss.json());
 router.post("/pacientes", (req, res) => {
     const user = userShema(req.body);
     user
-    .save()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
+    .save(err =>{
+        if(err){
+            res.status(500).send('ERROR AL REGISTRAR EL PACIENTE');
+        }else{
+            res.status(200).send('PACIENTE RESGISTRADO');
+        }
+    });
 });
 
 // obtener pacientes
@@ -63,7 +67,8 @@ router.delete("/pacientes/:id", (req, res) => {
 router.post("/registro", (req, res) => {
     const {usuario, pass, adminn, admina, admine, admins} = req.body;
     const newuser = new admin({usuario, pass, adminn, admina, admine, admins});
-    newuser.save(err =>{
+    newuser
+    .save(err =>{
         if(err){
             res.status(500).send('ERROR AL REGISTRAR EL USUARIO');
         }else{
@@ -75,8 +80,8 @@ router.post("/registro", (req, res) => {
 // inicio sesion
 router.post("/login", (req, res) => {
     const {usuario, pass} = req.body;
-
-    admin.findOne({usuario}, (err, user) => {
+    admin
+    .findOne({usuario}, (err, user) => {
         if(err){
             return res.status(500).send('ERROR AL INICIAR SESION');
         }
