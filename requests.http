@@ -14,7 +14,7 @@ Content-Type: application/json
 
 // Leer Usuarios
 ###
-GET http://localhost:9000/api/users HTTP/1.1\
+GET http://localhost:9000/api/users HTTP/1.1
 
 ###
 
