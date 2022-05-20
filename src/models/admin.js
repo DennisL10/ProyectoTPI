@@ -31,6 +31,7 @@ const userShema = mongoose.Schema({
     }
 });
 
+
 userShema.pre('save', function(next){
     bcrypt.genSalt(10).then(salts => {
         bcrypt.hash(this.pass, salts).then(hash => {
@@ -41,16 +42,13 @@ userShema.pre('save', function(next){
 
 });
 
-userShema.pre('updateOne', function(next){
-    bcrypt.genSalt(10).then(salts => {
-        bcrypt.hash(this.pass, salts).then(hash => {
-            this.pass = hash;
-            next();
-        }).catch(error => next(error));
-    }).catch(error => next(error));
-
-
-});
+userShema.pre('findOneAndUpdate', async function (next) {
+    const user = this;
+    if (user._update.$set.pass) {
+      user._update.$set.pass = await bcrypt.hash(user._update.$set.pass, 10);
+    }
+    next();
+  }); 
 
 
 

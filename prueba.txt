@@ -1,0 +1,30 @@
+userShema.pre('save', function(next){
+    bcrypt.genSalt(10).then(salts => {
+        bcrypt.hash(this.pass, salts).then(hash => {
+            this.pass = hash;
+            next();
+        }).catch(error => next(error));
+    }).catch(error => next(error));
+
+});
+
+userShema.pre('updateOne', function(next){
+    bcrypt.genSalt(10).then(salts => {
+        bcrypt.hash(this.pass, salts).then(hash => {
+            this.pass = hash;
+            next();
+        }).catch(error => next(error));
+    }).catch(error => next(error));
+
+
+});
+
+
+ const { id } = req.params;
+    const {usuario, pass, adminn, admina, admine, admins} = req.body;
+  
+    
+    admin
+    .updateOne({ _id: id }, { $set: { usuario, pass, adminn, admina, admine, admins} })
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));

@@ -1,6 +1,7 @@
 const expresss = require("express");
 const userShema = require("../models/pacientes");
 const admin = require("../models/admin");
+const bcrypt = require('bcrypt');
 
 const router = expresss.Router();
 router.use(expresss.urlencoded({extended:false}));
@@ -125,11 +126,13 @@ router.get("/admin/:id", (req, res) => {
 //Actualizar usuarios
 router.put("/admin/:id", (req, res) => {
     const { id } = req.params;
-    const {usuario, pass, adminn, admina, admine, admins} = req.body;
+    const {usuario, pass, adminn, admina, admine, admins} = req.body;         
     admin
-    .updateOne({ _id: id }, { $set: { usuario, pass, adminn, admina, admine, admins} })
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
+    .findOneAndUpdate({ _id: id }, { $set: { usuario, pass, adminn, admina, admine, admins} })
+    .then(() => res.json({message: 'Usuario Actualizado'}))
+    .catch(()=> res.json({ message: 'error' }));
+
+       
 });
 
 
